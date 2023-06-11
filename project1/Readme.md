@@ -3,13 +3,13 @@ It can play music for you.
 It can do Wikipedia searches for you.
 It is capable of opening websites like Google, Youtube, etc., in a web browser.
 It is capable of opening your code editor or IDE with a single voice command.
-Enough talks! Let's start building our own J.A.R.V.I.S.
+Enough talks! Let's start building our own hello.
 
 Starting VS Code
-I am going to use the VS Code IDE in this video. Feel free to use any other IDE you are comfortable with. Start a new project and make a file called jarvis.py.
+I am going to use the VS Code IDE in this video. Feel free to use any other IDE you are comfortable with. Start a new project and make a file called code.py.
 
  Defining Speak Function
-The first and foremost thing for an A.I. assistant is that it should be able to speak. To make our J.A.R.V.I.S. talk, we will make a function called speak(). This function will take audio as an argument, and then it will pronounce it.
+The first and foremost thing for an A.I. assistant is that it should be able to speak. To make our hello. talk, we will make a function called speak(). This function will take audio as an argument, and then it will pronounce it.
 
 def speak(audio):
        pass      #For now, we will write the conditions later.
@@ -64,7 +64,7 @@ Code:
 
 if __name__=="__main__" :
 
-speak("Code With Harry")
+speak("hello")
 
  
 Whatever you will write inside this speak() function will be converted into speech. Congratulations! With this, our J.A.R.V.I.S. has its own voice, and it is ready to speak.
@@ -182,7 +182,7 @@ In the above, code we are using the datetime() function and storing the current 
 
  Defining Task 6: To open the VS Code Program
  elif 'open code' in query:
-            codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            codePath = "C:\\Users\\vishal\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
 To open the VS Code or any other application, we need the code path of the application.
 
@@ -282,7 +282,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("I am Jarvis Sir. Please tell me how may I help you")       
+    speak("I am hello Sir. Please tell me how may I help you")       
 
 def takeCommand():
     #It takes microphone input from the user and returns string output
@@ -317,49 +317,3 @@ if __name__ == "__main__":
     while True:
     # if 1:
         query = takeCommand().lower()
-
-        # Logic for executing tasks based on query
-        if 'wikipedia' in query:
-            speak('Searching Wikipedia...')
-            query = query.replace("wikipedia", "")
-            results = wikipedia.summary(query, sentences=2)
-            speak("According to Wikipedia")
-            print(results)
-            speak(results)
-
-        elif 'open youtube' in query:
-            webbrowser.open("youtube.com")
-
-        elif 'open google' in query:
-            webbrowser.open("google.com")
-
-        elif 'open stackoverflow' in query:
-            webbrowser.open("stackoverflow.com")   
-
-
-        elif 'play music' in query:
-            music_dir = 'D:\\Non Critical\\songs\\Favorite Songs2'
-            songs = os.listdir(music_dir)
-            print(songs)    
-            os.startfile(os.path.join(music_dir, songs[0]))
-
-        elif 'the time' in query:
-            strTime = datetime.datetime.now().strftime("%H:%M:%S")    
-            speak(f"Sir, the time is {strTime}")
-
-        elif 'open code' in query:
-            codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
-            os.startfile(codePath)
-
-        elif 'email to harry' in query:
-            try:
-                speak("What should I say?")
-                content = takeCommand()
-                to = "harryyourEmail@gmail.com"    
-                sendEmail(to, content)
-                speak("Email has been sent!")
-            except Exception as e:
-                print(e)
-                speak("Sorry my friend harry bhai. I am not able to send this email")    
-Previous
-Next
